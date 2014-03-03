@@ -272,6 +272,26 @@ chooser.addEventListener('change', handleChooser, false);
 // listener for spacebar icon
 spacebar.addEventListener('click', togglePlay, false); 
 
+// listener for audio element
+player.addEventListener('ended', function(e) {
+    player.pause();
+    spacebaricon.className = "fa fa-play fa-2x";
+    player.currentTime = 0;
+    return false;
+}, false);
+
+// listener for audio element
+player.addEventListener('pause', function(e) {
+    spacebaricon.className = "fa fa-play fa-2x";
+    return false;
+}, false);
+
+// listener for audio element
+player.addEventListener('play', function(e) {
+    spacebaricon.className = "fa fa-pause fa-2x";
+    return false;
+}, false);
+
 
 } // end of huge else statement
 
