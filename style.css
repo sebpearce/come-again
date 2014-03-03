@@ -17,15 +17,15 @@ h1 {
     font-weight: 500;
     font-size: 300%;
     letter-spacing: -0.04em;
-    /*text-transform: lowercase;*/
     text-align: center;
 }
 
 #links {
     position: absolute;
     font-size: 80%;
-    top: 0.5em;
+    top: 1em;
     left: 10px;
+    font-weight: 600;
     line-height: 150%;
 }
 
@@ -34,15 +34,15 @@ h1 {
 }
 
 #links ul {
-    margin: 0;
+    margin: 3px 0 0 0;
     padding: 0;
 }
 
 #links ul li {
     display: inline;
-    font-size: 120%;
+    font-size: 150%;
     color: #888;
-    margin-right: 0.5em;
+    margin-right: 0.2em;
 }
 
 #page-wrapper {
@@ -68,8 +68,6 @@ h1 {
 
 #chooser {
     font-size: 90%;
-    /*margin: 0 auto;*/
-    /*margin-bottom: 0;*/
     display: block;
     color: #ccc;
 }
@@ -106,7 +104,6 @@ h1 {
 }
 
 #guide {
-    /*display: block;*/
     display: none;
     text-align: center;
     margin-top: 1000px;

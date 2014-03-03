@@ -33,17 +33,28 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
     <div id="page-wrapper">
 
         <h1>Come again?</h1>
 
         <div id="links">
-            <a href="http://sebpearce.com">sebpearce.com</a><br />
+            <div class="fb-like" data-href="http://sebpearce.com/come-again/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" style="margin-bottom: 5px"></div><br />
+            <a href="http://sebpearce.com">sebpearce.com</a>
             <ul>
                 <li><a href="http://github.com/sebpearce/come-again"><i class="fa fa-github fa"></i></a></li>
+                <li><a href="mailto:sebpearce@gmail.com"><i class="fa fa-envelope-o fa"></i></a></li>
                 <li><a href="http://twitter.com/_sebu_"><i class="fa fa-twitter fa"></i></a></li>
             </ul>
+            
         </div>
 
         <p id="bigmessage">To start, click <em>choose file</em> or drag and drop a file below.</p>
