@@ -1,0 +1,197 @@
+
+body {
+    color: #444;
+    font-size: 100%;
+    font-family:  'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    padding: 50px;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #4e91d0;
+}
+
+h1 {
+    margin-top: 0;
+    font-weight: 500;
+    font-size: 300%;
+    letter-spacing: -0.04em;
+    /*text-transform: lowercase;*/
+    text-align: center;
+}
+
+#links {
+    position: absolute;
+    font-size: 80%;
+    top: 0.5em;
+    left: 10px;
+    line-height: 150%;
+}
+
+#links a:hover {
+    color: #444;
+}
+
+#links ul {
+    margin: 0;
+    padding: 0;
+}
+
+#links ul li {
+    display: inline;
+    font-size: 120%;
+    color: #888;
+    margin-right: 0.5em;
+}
+
+#page-wrapper {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+#bigmessage {
+    font-size: 150%;
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 0.5em;
+    font-weight: 300;
+}
+
+#refresh {
+    display: none;
+    text-align: center;
+    color: #ccc;
+    font-size: 90%;
+    margin: 0.5em 0;
+}
+
+#chooser {
+    font-size: 90%;
+    /*margin: 0 auto;*/
+    /*margin-bottom: 0;*/
+    display: block;
+    color: #ccc;
+}
+
+#dragndrop {
+    width: 99%;
+    margin: 10px auto 15px auto;
+    padding: 25px 0px;
+    background-color: rgb(245,245,245);
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 80%;
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(207,207,207,1);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(207,207,207,1);
+    box-shadow: inset 0px 0px 10px 0px rgba(207,207,207,1);
+}
+
+#notsupported {
+    color: #cf453a;
+    display: none;
+    font-weight: 700;
+}
+
+#playerlabel {
+    display: block;
+    margin: 0;
+    margin-left: -1000px;
+    font-size: 80%;
+    color: #aaa;
+}
+
+#player {
+    width: 100%;
+}
+
+#guide {
+    /*display: block;*/
+    display: none;
+    text-align: center;
+    margin-top: 1000px;
+}
+
+#hotkeyguide {
+    color: #ccc;
+    display: inline-block;
+    margin: 30px auto;
+}
+
+#hotkeyguide td {
+    width: 3em;
+    height: 2em;
+    text-align: center;
+}
+
+#hotkeyguide .key {
+    font-weight: bold;
+}
+
+#hotkeyguide .key.blank {
+    color: #eee;
+}
+
+#hotkeyguide td.symbol {
+    height: 4em;
+    color: #999;
+}
+
+#hotkeyguide td.symbol span.interval {
+    font-size: 70%;
+}
+
+#hotkeyguide td.symbol span.interval:after {
+    content: ' sec';
+}
+
+#hotkeyguide .fa-backward {
+    padding-right: 5px;
+}
+
+#hotkeyguide .fa-forward {
+    padding-left: 5px;
+}
+
+#spacebar {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    color: #999;
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+    -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+    box-shadow:         0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+}
+
+#help {
+    display: block;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 2em;
+}
+
+#helplink:hover {
+    cursor: default;
+    text-decoration: underline;
+}
+
+#helpdialog {
+    display: none;
+    font-size: 90%;
+    width: 65%;
+    max-width: 800px;
+    padding: 1em 2em;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
