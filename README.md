@@ -20,3 +20,5 @@ If you want to load a new audio file, just refresh the page.
 Comments? Suggestions? [Email me!][email]
 
 [email]: mailto:sebpearce@gmail.com
+
+(Facebook Image is copyright (c) Hunter Peddicord - http://www.flickr.com/photos/bigbadvoo/)
