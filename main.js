@@ -25,6 +25,14 @@ var bigmessage = document.getElementById('bigmessage');
 var spacebaricon = document.getElementById('spacebaricon');
 var refresh = document.getElementById('refresh');
 var playerlabel = document.getElementById('playerlabel');
+var back4 = document.getElementById('back4');
+var back3 = document.getElementById('back3');
+var back2 = document.getElementById('back2');
+var back1 = document.getElementById('back1');
+var forward4 = document.getElementById('forward4');
+var forward3 = document.getElementById('forward3');
+var forward2 = document.getElementById('forward2');
+var forward1 = document.getElementById('forward1');
 
 
 function supportsFileAPI() {
@@ -271,6 +279,16 @@ chooser.addEventListener('change', handleChooser, false);
 
 // listener for spacebar icon
 spacebar.addEventListener('click', togglePlay, false); 
+
+// listener for rewind/skip buttons
+back4.addEventListener('click', rewind_4, false); 
+back3.addEventListener('click', rewind_3, false); 
+back2.addEventListener('click', rewind_2, false); 
+back1.addEventListener('click', rewind_1, false); 
+forward4.addEventListener('click', skip_4, false); 
+forward3.addEventListener('click', skip_3, false); 
+forward2.addEventListener('click', skip_2, false); 
+forward1.addEventListener('click', skip_1, false); 
 
 // listener for audio element
 player.addEventListener('ended', function(e) {
