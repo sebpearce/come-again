@@ -1,0 +1,26 @@
+
+@media screen and (max-width: 480px) {
+
+    body {
+        padding: 5%;
+    }
+    #notsupported {
+        display: block;
+    }
+    #links {
+        display: none;
+    }
+    #bigmessage {
+        display: none;
+    }
+    #chooser {
+        display: none;
+    }
+    #dragndrop {
+        display: none;
+    }
+    #player {
+        display: none;
+    }
+
+}
