@@ -25,6 +25,7 @@ var bigmessage = document.getElementById('bigmessage');
 var spacebaricon = document.getElementById('spacebaricon');
 var refresh = document.getElementById('refresh');
 var playerlabel = document.getElementById('playerlabel');
+var guide = document.getElementById('guide');
 var back4 = document.getElementById('back4');
 var back3 = document.getElementById('back3');
 var back2 = document.getElementById('back2');
@@ -46,6 +47,9 @@ function hideControls() {
     chooser.style.display = 'none';
     dragndrop.style.display = 'none';
     player.style.display = 'none';
+    playerlabel.style.display = 'none';
+    guide.style.display = 'none';
+    refresh.style.display = 'none';
     document.getElementById('notsupported').style.display = 'block';
 }
 

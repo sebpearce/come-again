@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,700,600);
 
 body {
     color: #444;
@@ -54,7 +55,7 @@ h1 {
     font-size: 150%;
     color: #aaa;
     text-align: center;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     font-weight: 300;
 }
 
@@ -88,7 +89,7 @@ h1 {
 #notsupported {
     color: #cf453a;
     display: none;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 #playerlabel {

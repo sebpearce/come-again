@@ -4,23 +4,24 @@
     body {
         padding: 5%;
     }
+
     #notsupported {
         display: block;
     }
-    #links {
-        display: none;
-    }
-    #bigmessage {
-        display: none;
-    }
-    #chooser {
-        display: none;
-    }
-    #dragndrop {
-        display: none;
-    }
-    #player {
-        display: none;
+
+    #links,
+    #bigmessage,
+    #refresh,
+    #chooser,
+    #dragndrop,
+    #player,
+    #playerlabel,
+    #guide,
+    #hotkeyguide,
+    #spacebar,
+    #help,
+    #helpdialog {
+        display: none!important;
     }
 
 }
