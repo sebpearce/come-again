@@ -34,6 +34,15 @@ var forward4 = document.getElementById('forward4');
 var forward3 = document.getElementById('forward3');
 var forward2 = document.getElementById('forward2');
 var forward1 = document.getElementById('forward1');
+var glabel = document.getElementById('g-label');
+var hlabel = document.getElementById('h-label');
+var loopstartbutton = document.getElementById('loop-start-button');
+var loopendbutton = document.getElementById('loop-end-button');
+var looplabel = document.getElementById('bottom-loop-label');
+var looptext = document.getElementById('loop-text');
+var loopstart = -1;
+var loopend = -1;
+var islooping = false;
 
 
 function supportsFileAPI() {
@@ -159,43 +168,146 @@ function loadFileIntoPlayer(f) {
 // Without the "if (player.readyState == 4)" bits, I was getting console
 // errors for referencing currentTime before the audio element was loaded.
 
+function invert_button_colors(mode) {
+
+    keyGroup = document.getElementsByClassName('key');
+    symbolGroup = document.getElementsByClassName('symbol');
+
+    if (mode == 2) {
+        for (var i = 0, len = keyGroup.length; i < len; i++) {
+            keyGroup[i].style.color = '#eee';
+        }
+        for (var i = 0, len = symbolGroup.length; i < len; i++) {
+            symbolGroup[i].style.color = '#eee';
+        }        
+        loopendbutton.style.color = '#999';
+        hlabel.style.color = '#ccc';
+        looplabel.style.color = '#999';
+    } else if (mode == 1) {
+        for (var i = 0, len = keyGroup.length; i < len; i++) {
+            keyGroup[i].style.color = '#eee';
+        }
+        for (var i = 0, len = symbolGroup.length; i < len; i++) {
+            symbolGroup[i].style.color = '#eee';
+        }
+        loopstartbutton.style.color = '#999';
+        loopendbutton.style.color = '#999';
+        glabel.style.color = '#ccc';
+        hlabel.style.color = '#ccc';
+        looplabel.style.color = '#999';
+        // forward1.style.color = '#eee';
+        // forward2.style.color = '#eee';
+        // forward3.style.color = '#eee';
+        // forward4.style.color = '#eee';
+        // back1.style.color = '#eee';
+        // back2.style.color = '#eee';
+        // back3.style.color = '#eee';
+        // back4.style.color = '#eee';
+    } else if (mode == 0) {
+        for (var i = 0, len = keyGroup.length; i < len; i++) {
+            keyGroup[i].style.color = '#ccc';
+        }
+        for (var i = 0, len = symbolGroup.length; i < len; i++) {
+            symbolGroup[i].style.color = '#999';
+        }
+        // loopstartbutton.style.color = '#eee';
+        loopendbutton.style.color = '#eee';
+        // glabel.style.color = '#eee';
+        hlabel.style.color = '#eee';
+        looplabel.style.color = '#eee';
+        // loopstartbutton.style.color = '#eee';
+        // loopendbutton.style.color = '#eee';
+        // glabel.style.color = '#eee';
+        // hlabel.style.color = '#eee';
+        // forward1.style.color = '#999';
+        // forward2.style.color = '#999';
+        // forward3.style.color = '#999';
+        // forward4.style.color = '#999';
+        // back1.style.color = '#999';
+        // back2.style.color = '#999';
+        // back3.style.color = '#999';
+        // back4.style.color = '#999'; 
+    }
+
+}
+
 function rewind_1() {
-    if (player.readyState == 4) { player.currentTime -= 1; }
+    if (player.readyState == 4 && loopstart == -1) { player.currentTime -= 1; }
     return false;
 }
 
 function rewind_2() {
-    if (player.readyState == 4) { player.currentTime -= 2; }
+    if (player.readyState == 4 && loopstart == -1) { player.currentTime -= 2; }
     return false;
 }
 
 function rewind_3() {
-    if (player.readyState == 4) { player.currentTime -= 3; }
+    if (player.readyState == 4 && loopstart == -1) { player.currentTime -= 3; }
     return false;
 }
 
 function rewind_4() {
-    if (player.readyState == 4) { player.currentTime -= 4; }
+    if (player.readyState == 4 && loopstart == -1) { player.currentTime -= 4; }
     return false;
 }
 
 function skip_1() {
-    if (player.readyState == 4) { player.currentTime += 1; }
+    if (player.readyState == 4 && loopstart == -1) { player.currentTime += 1; }
     return false;
 }
 
 function skip_2() {
-    if (player.readyState == 4) { player.currentTime += 2; }
+    if (player.readyState == 4 && loopstart == -1) { player.currentTime += 2; }
     return false;
 }
 
 function skip_3() {
-    if (player.readyState == 4) { player.currentTime += 3; }
+    if (player.readyState == 4 && loopstart == -1) { player.currentTime += 3; }
     return false;
 }
 
 function skip_4() {
-    if (player.readyState == 4) { player.currentTime += 4; }
+    if (player.readyState == 4 && loopstart == -1) { player.currentTime += 4; }
+    return false;
+}
+
+function start_recording() {
+    if (player.readyState == 4) { 
+        loopstart = player.currentTime;
+        if (!islooping) {
+            invert_button_colors(2);
+            looptext.innerHTML = 'start';
+            bigmessage.innerHTML = 'Press H to set the end point of the loop.';
+        }
+    }
+    return false;
+}
+
+function stop_recording_and_loop() {
+    if (player.readyState == 4 && loopstart > 0) { 
+        loopend = player.currentTime;
+        islooping = true;
+        player.currentTime = loopstart;
+        invert_button_colors(1);
+        bigmessage.innerHTML = 'Press ESC to cancel the loop.';
+        bigmessage.style.fontWeight = "700";
+        // bigmessage.style.color = "#4e91d0";
+    }
+    return false;
+}
+
+function cancel_loop() {
+    if (player.readyState == 4) {
+        islooping = false;
+        loopstart = -1;
+        loopend = -1;
+        invert_button_colors(0);
+        looptext.innerHTML = 'loop';
+        bigmessage.innerHTML = 
+        'Use your keyboard to control playback &mdash; see below.';
+        bigmessage.style.fontWeight = "300";
+        bigmessage.style.color = "#aaa";
+    }
     return false;
 }
 
@@ -240,21 +352,25 @@ $(document).ready(function(){
 
     // home row
 
+    $(document).bind('keydown', 'g', start_recording);
     $(document).bind('keydown', 'f', rewind_1);
     $(document).bind('keydown', 'd', rewind_2);
     $(document).bind('keydown', 's', rewind_3);
     $(document).bind('keydown', 'a', rewind_4);
 
+    $(document).bind('keydown', 'h', stop_recording_and_loop);
     $(document).bind('keydown', 'j', skip_1);
     $(document).bind('keydown', 'k', skip_2);
     $(document).bind('keydown', 'l', skip_3);
     $(document).bind('keydown', ';', skip_4);
     
+    $(document).bind('keydown', 'G', start_recording);
     $(document).bind('keydown', 'F', rewind_1);
     $(document).bind('keydown', 'D', rewind_2);
     $(document).bind('keydown', 'S', rewind_3);
     $(document).bind('keydown', 'A', rewind_4);
 
+    $(document).bind('keydown', 'H', stop_recording_and_loop);
     $(document).bind('keydown', 'J', skip_1);
     $(document).bind('keydown', 'K', skip_2);
     $(document).bind('keydown', 'L', skip_3);
@@ -267,6 +383,10 @@ $(document).ready(function(){
     $(document).bind('keydown', 'down', dec_volume);
 
     $(document).bind('keydown', 'space', togglePlay);
+
+    // misc
+
+    $(document).bind('keydown', 'esc', cancel_loop);
 
 });
 
@@ -312,6 +432,14 @@ player.addEventListener('pause', function(e) {
 player.addEventListener('play', function(e) {
     spacebaricon.className = "fa fa-pause fa-2x";
     return false;
+}, false);
+
+// check currentTime every 250ms and jump to start of loop if reached end
+player.addEventListener('timeupdate', function(e) {
+    // finish(true);
+    if (islooping && player.currentTime >= loopend) {
+        player.currentTime = loopstart;
+    }
 }, false);
 
 

@@ -135,20 +135,45 @@ h1 {
     color: #999;
 }
 
+#hotkeyguide td.symbol.blank {
+    color: #eee;
+}
+
 #hotkeyguide td.symbol span.interval {
     font-size: 70%;
 }
 
+#hotkeyguide #loop-start-button {
+    color: #999;
+}
+
+/*#hotkeyguide .big-icon {
+    font-size: 200%;   
+    line-height: 100%;
+    margin-top: -10px;
+    text-align: center;
+}*/
+
+/*#hotkeyguide #loop-end-button,
+#hotkeyguide #h-label {
+    color: #fff;
+}*/
+
+/*
 #hotkeyguide td.symbol span.interval:after {
     content: ' sec';
 }
-
+*/
 #hotkeyguide .fa-backward {
     padding-right: 5px;
 }
 
 #hotkeyguide .fa-forward {
     padding-left: 5px;
+}
+
+#hotkeyguide #bottom-loop-label {
+    color: #eee;
 }
 
 #spacebar {

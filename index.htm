@@ -34,6 +34,7 @@
 </head>
 
 <body>
+    
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -42,6 +43,7 @@
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+
 
     <div id="page-wrapper">
 
@@ -58,9 +60,9 @@
             
         </div>
 
-        <p id="bigmessage">This is a tool to practice intensive listening in a foreign language.<br>To start, choose (or drag and drop) a file you'd like to listen to.</p>
+        <p id="bigmessage">This is a tool to practice intensive listening in a foreign language.<br>To start, choose (or drag and drop) a file you’d like to listen to.</p>
 
-        <p id="refresh">(Refresh the page to load a new file.)</p>
+        <p id="refresh">Refresh the page to load a new file.</p>
 
         <div id="notsupported">
             <p>Sorry, this app is not for smartphones.</p>
@@ -85,8 +87,8 @@
                     <td class="key"> S </td>
                     <td class="key"> D </td>
                     <td class="key"> F </td>
-                    <td class="key blank"> G </td>
-                    <td class="key blank"> H </td>
+                    <td class="key" id="g-label"> G </td>
+                    <td class="key blank" id="h-label"> H </td>
                     <td class="key"> J </td>
                     <td class="key"> K </td>
                     <td class="key"> L </td>
@@ -95,37 +97,47 @@
                 <tr>
                     <td class="symbol" id="back4">
                         <i class="fa fa-backward fa-2x"></i><br />
-                        <span class="interval">4</span>
+                        <span class="interval">4 sec</span>
                     </td>                
                     <td class="symbol" id="back3">
                         <i class="fa fa-backward fa-2x"></i><br />
-                        <span class="interval">3</span>
+                        <span class="interval">3 sec</span>
                     </td>
                     <td class="symbol" id="back2">
                         <i class="fa fa-backward fa-2x"></i><br />
-                        <span class="interval">2</span>
+                        <span class="interval">2 sec</span>
                     </td>
                     <td class="symbol" id="back1">
                         <i class="fa fa-backward fa-2x"></i><br />
-                        <span class="interval">1</span>
+                        <span class="interval">1 sec</span>
                     </td>
-                    <td class="symbol"></td> 
-                    <td class="symbol"></td>
+                    <td class="symbol blank" id="loop-start-button">
+                        <i class="fa fa-level-down fa-rotate-180 fa-2x"></i>
+                        <!-- <span class="big-icon">{</span> -->
+                        <br />
+                        <span class="interval" id="loop-text">loop</span>
+                    </td> 
+                    <td class="symbol blank" id="loop-end-button">
+                        <i class="fa fa-level-down fa-2x"></i>
+                        <!-- <span class="big-icon">}</span> -->
+                        <br />
+                        <span class="interval">end</span>
+                    </td> 
                     <td class="symbol" id="forward1">
                         <i class="fa fa-forward fa-2x"></i><br />
-                        <span class="interval">1</span>
+                        <span class="interval">1 sec</span>
                     </td>
                     <td class="symbol" id="forward2">
                         <i class="fa fa-forward fa-2x"></i><br />
-                        <span class="interval">2</span>
+                        <span class="interval">2 sec</span>
                     </td>
                     <td class="symbol" id="forward3">
                         <i class="fa fa-forward fa-2x"></i><br />
-                        <span class="interval">3</span>
+                        <span class="interval">3 sec</span>
                     </td>                
                     <td class="symbol" id="forward4">
                         <i class="fa fa-forward fa-2x"></i><br />
-                        <span class="interval">4</span>
+                        <span class="interval">4 sec</span>
                     </td>
                 </tr>
                 <tr>
@@ -135,8 +147,10 @@
                         <i class="fa fa-long-arrow-left fa-2x"></i><br />
                     </td>
                     <td class="key"> </td>
-                    <td class="key blank"></td>
-                    <td class="key blank"></td>
+                    <td class="key blank" id="bottom-loop-label" colspan="2">
+                        <i class="fa fa-retweet fa-2x"></i><br />
+                    </td>
+                    <!-- <td class="key blank"></td> -->
                     <td class="key"></td>
                     <td class="key">
                         <i class="fa fa-long-arrow-right fa-2x"></i><br />
@@ -169,11 +183,12 @@
 
             <div id="helpdialog">
                 <p><em>Come again?</em> is a tool for developing listening skills in a foreign language.</p>
-                <p>To practice listening effectively, it's important to repeat small sections of a text until you can understand and say them without effort. Since most apps do not offer a convenient way to rewind quickly, I designed <em>Come again?</em> with this in mind.</p>
-                <p>It works entirely in your browser, so you're not uploading anything when you use it.</p>
+                <p>To practice listening effectively, it’s important to repeat small sections of a text until you can understand and say them without effort. Since most apps do not offer a convenient way to rewind quickly, I designed <em>Come again?</em> with this in mind.</p>
+                <p>It works entirely in your browser, so you’re not uploading anything when you use it.</p>
                 <p>You can use <strong>the keys in the home row</strong> (<strong>A</strong> to <strong>;</strong>) to control playback by rewinding/skipping at 1-to-4-second intervals.</p>
                 <p>You can also use the numbers <strong>1</strong> to <strong>4</strong> or <strong>the left and right arrow keys</strong> to rewind.</p>
                 <p>Use <strong>the spacebar</strong> to play or pause the audio.</p>
+                <p>You can also loop a section of audio. Use <strong>G</strong> to set the starting point and then <strong>H</strong> to set the end point. You can make the loop shorter by pressing <strong>G</strong> or <strong>H</strong> while the loop is playing. To cancel the loop, press <strong>escape</strong>.
                 <p>Use <strong>the up and down arrow keys</strong> to control the volume.</p>
                 <p>If you want to load a new audio file, just refresh the page.</p>
                 <p><em>Come again?</em> works best in <a href="http://www.google.com/chrome/">Chrome</a>.</p>
