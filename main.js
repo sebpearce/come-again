@@ -14,9 +14,10 @@
  * Bjørn Klinggaard, who created the excellent bPopup.js jQuery plugin:
  * http://dinbror.dk/blog/bPopup/
  * 
- * John Resig, who created the jQuery Hotkeys plugin:
+ * John Resig, who created jQuery & the jQuery Hotkeys plugin:
  * https://github.com/jeresig/jquery.hotkeys
  */
+
 
 var chooser = document.getElementById('chooser');
 var dragndrop = document.getElementById('dragndrop');
@@ -43,6 +44,11 @@ var looptext = document.getElementById('loop-text');
 var loopstart = -1;
 var loopend = -1;
 var islooping = false;
+var slowlevel = 1;
+var slowbar1 = document.getElementById('slowbar1');
+var slowbar2 = document.getElementById('slowbar2');
+var slowbar3 = document.getElementById('slowbar3');
+var slowbutton = document.getElementById('slow');
 
 
 function supportsFileAPI() {
@@ -130,7 +136,7 @@ function loadFileIntoPlayer(f) {
 
     // show refresh tip
     refresh.style.display = 'block';
-    
+
 }
 
 
@@ -231,6 +237,26 @@ function invert_button_colors(mode) {
 
 }
 
+function change_slow_colors(mode) {
+    switch (mode) {
+        case 1: slowbar1.style.backgroundColor = '#999';
+                slowbar2.style.backgroundColor = '#eee';
+                slowbar3.style.backgroundColor = '#eee';
+        break;
+        case 2: slowbar1.style.backgroundColor = '#999';
+                slowbar2.style.backgroundColor = '#999';
+                slowbar3.style.backgroundColor = '#eee';
+        break;
+        case 3: slowbar1.style.backgroundColor = '#999';
+                slowbar2.style.backgroundColor = '#999';
+                slowbar3.style.backgroundColor = '#999';
+        break;
+        default:slowbar1.style.backgroundColor = '#999';
+                slowbar2.style.backgroundColor = '#eee';
+                slowbar3.style.backgroundColor = '#eee';
+    }
+}
+
 function rewind_1() {
     if (player.readyState == 4 && loopstart == -1) { player.currentTime -= 1; }
     return false;
@@ -268,6 +294,22 @@ function skip_3() {
 
 function skip_4() {
     if (player.readyState == 4 && loopstart == -1) { player.currentTime += 4; }
+    return false;
+}
+
+function slower() {
+    if (player.readyState == 4 && player.playbackRate >= 0.7) { 
+        player.playbackRate -= 0.2; 
+        slowlevel += 1;
+        change_slow_colors(slowlevel);
+    }
+    return false;
+}
+
+function speed_reset() {
+    player.playbackRate = 1; 
+    slowlevel = 1;
+    change_slow_colors(slowlevel);
     return false;
 }
 
@@ -386,6 +428,8 @@ $(document).ready(function(){
 
     // misc
 
+    $(document).bind('keydown', 'comma', speed_reset);
+    $(document).bind('keydown', 'period', slower);
     $(document).bind('keydown', 'esc', cancel_loop);
 
 });
@@ -413,6 +457,24 @@ forward4.addEventListener('click', skip_4, false);
 forward3.addEventListener('click', skip_3, false); 
 forward2.addEventListener('click', skip_2, false); 
 forward1.addEventListener('click', skip_1, false); 
+
+// listener for loop buttons
+loopstartbutton.addEventListener('click', start_recording, false); 
+loopendbutton.addEventListener('click', stop_recording_and_loop, false); 
+
+// listener for slow button
+slow.addEventListener('click', function(){
+    switch (slowlevel) {
+        case 1: slower();
+        break;
+        case 2: slower();
+        break;
+        case 3: speed_reset();
+        break;
+        default: speed_reset();
+    }
+}, false); 
+
 
 // listener for audio element
 player.addEventListener('ended', function(e) {

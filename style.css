@@ -113,7 +113,7 @@ h1 {
 #hotkeyguide {
     color: #ccc;
     display: inline-block;
-    margin: 30px auto;
+    margin: 30px auto 7px auto;
 }
 
 #hotkeyguide td {
@@ -174,6 +174,47 @@ h1 {
 
 #hotkeyguide #bottom-loop-label {
     color: #eee;
+}
+
+#slow {
+    width: 100px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+}
+
+#slowlabel {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 70%;
+    color: #999;
+}
+
+#slowbar1,
+#slowbar2,
+#slowbar3 {
+    display: block;
+    height: 10px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+#slowbar1,
+#slowbar2 {
+    margin-bottom: 4px;
+}
+
+#slowbar2,
+#slowbar3 {
+    background-color: #eee;
+}
+
+#slowbar1 {
+    background-color: #999;
 }
 
 #spacebar {
