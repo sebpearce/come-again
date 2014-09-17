@@ -5,22 +5,23 @@
         padding: 5%;
     }
 
-    #notsupported {
+    #not-supported {
         display: block;
     }
 
     #links,
-    #bigmessage,
+    #big-message,
     #refresh,
     #chooser,
-    #dragndrop,
+    #drag-n-drop,
     #player,
-    #playerlabel,
+    #player-label,
     #guide,
-    #hotkeyguide,
+    #hotkey-guide,
     #spacebar,
     #help,
-    #helpdialog {
+    #help-dialog,
+    #transcription-section {
         display: none!important;
     }
 

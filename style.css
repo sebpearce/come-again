@@ -1,11 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,700,600);
 
 body {
     color: #444;
     font-size: 100%;
     font-family:  'Open Sans', 'Helvetica', 'Arial', sans-serif;
     padding: 50px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 a {
@@ -51,7 +50,7 @@ h1 {
     max-width: 800px;
 }
 
-#bigmessage {
+#big-message {
     font-size: 150%;
     color: #aaa;
     text-align: center;
@@ -73,7 +72,7 @@ h1 {
     color: #ccc;
 }
 
-#dragndrop {
+#drag-n-drop {
     width: 99%;
     margin: 10px auto 15px auto;
     padding: 25px 0px;
@@ -86,13 +85,13 @@ h1 {
     box-shadow: inset 0px 0px 10px 0px rgba(207,207,207,1);
 }
 
-#notsupported {
+#not-supported {
     color: #cf453a;
     display: none;
     font-weight: 600;
 }
 
-#playerlabel {
+#player-label {
     display: block;
     margin: 0;
     margin-left: -1000px;
@@ -108,71 +107,55 @@ h1 {
     display: none;
     text-align: center;
     margin-top: 1000px;
+    margin-bottom: 20px;
 }
 
-#hotkeyguide {
+#hotkey-guide {
     color: #ccc;
     display: inline-block;
     margin: 30px auto 7px auto;
 }
 
-#hotkeyguide td {
+#hotkey-guide td {
     width: 3em;
     height: 2em;
     text-align: center;
 }
 
-#hotkeyguide .key {
+#hotkey-guide .key {
     font-weight: bold;
 }
 
-#hotkeyguide .key.blank {
+#hotkey-guide .key.blank {
     color: #eee;
 }
 
-#hotkeyguide td.symbol {
+#hotkey-guide td.symbol {
     height: 4em;
     color: #999;
 }
 
-#hotkeyguide td.symbol.blank {
+#hotkey-guide td.symbol.blank {
     color: #eee;
 }
 
-#hotkeyguide td.symbol span.interval {
+#hotkey-guide td.symbol span.interval {
     font-size: 70%;
 }
 
-#hotkeyguide #loop-start-button {
+#hotkey-guide #loop-start-button {
     color: #999;
 }
 
-/*#hotkeyguide .big-icon {
-    font-size: 200%;   
-    line-height: 100%;
-    margin-top: -10px;
-    text-align: center;
-}*/
-
-/*#hotkeyguide #loop-end-button,
-#hotkeyguide #h-label {
-    color: #fff;
-}*/
-
-/*
-#hotkeyguide td.symbol span.interval:after {
-    content: ' sec';
-}
-*/
-#hotkeyguide .fa-backward {
+#hotkey-guide .fa-backward {
     padding-right: 5px;
 }
 
-#hotkeyguide .fa-forward {
+#hotkey-guide .fa-forward {
     padding-left: 5px;
 }
 
-#hotkeyguide #bottom-loop-label {
+#hotkey-guide #bottom-loop-label {
     color: #eee;
 }
 
@@ -182,16 +165,16 @@ h1 {
     text-align: center;
 }
 
-#slowlabel {
+#slow-label {
     display: block;
     margin-bottom: 3px;
     font-size: 70%;
     color: #999;
 }
 
-#slowbar1,
-#slowbar2,
-#slowbar3 {
+#slow-bar-1,
+#slow-bar-2,
+#slow-bar-3 {
     display: block;
     height: 10px;
     width: 50px;
@@ -203,17 +186,17 @@ h1 {
     text-align: center;
 }
 
-#slowbar1,
-#slowbar2 {
+#slow-bar-1,
+#slow-bar-2 {
     margin-bottom: 4px;
 }
 
-#slowbar2,
-#slowbar3 {
+#slow-bar-2,
+#slow-bar-3 {
     background-color: #eee;
 }
 
-#slowbar1 {
+#slow-bar-1 {
     background-color: #999;
 }
 
@@ -236,17 +219,19 @@ h1 {
 
 #help {
     display: block;
+    position: absolute;
+    top: 7px;
+    right: 10px;
     text-align: center;
     font-weight: 400;
-    margin-top: 2em;
 }
 
-#helplink:hover {
-    cursor: default;
+#help-link:hover {
+    cursor: pointer;
     text-decoration: underline;
 }
 
-#helpdialog {
+#help-dialog {
     display: none;
     font-size: 90%;
     width: 65%;
@@ -257,5 +242,52 @@ h1 {
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
+
+#transcription-tip {
+    display: block;
+    margin: 0 0 1em 0;
+    text-align: center;    
+    color: #ccc;
+}
+
+#transcription-section {
+    display: none;
+    width: 99%;
+    padding: 20px 0 0 0;
+    margin-top: 1000px;
+}
+
+#transcription-box {
+    width: 98%;
+    min-height: 100px;
+    height: 200px;
+    resize: vertical; 
+    /*outline-color: #4e91d0;*/
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    /*font-size: 24px;*/
+    font-family:  'Noto Sans', 'Open Sans', 'Helvetica', 
+        'Noto Naskh Arabic', sans-serif;
+    line-height: 135%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15) inset; 
+    -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15) inset;
+}
+
+#transcribe-button,
+#stop-transcribe-button {
+    display: block;
+    width: 300px;
+    margin: 1em auto 0 auto;
+    color: #4e91d0;
+    text-align: center;
+}
+
+#transcribe-button:hover,
+#stop-transcribe-button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 
 

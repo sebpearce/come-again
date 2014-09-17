@@ -22,3 +22,18 @@ Comments? Suggestions? [Email me!][email]
 [email]: mailto:sebpearce@gmail.com
 
 (Facebook Image is copyright (c) Hunter Peddicord - http://www.flickr.com/photos/bigbadvoo/)
+
+Thanks to:
+===========
+
+Ben Crowder, whose project 'crosswrite' inspired this idea:
+https://github.com/bencrowder/crosswrite
+
+Michael Gerhäuser, who supplied the basic code to get me started:
+http://www.michael-gerhaeuser.de/?f=fileapi/readme.html
+
+Bjørn Klinggaard, who created the excellent bPopup.js jQuery plugin:
+http://dinbror.dk/blog/bPopup/
+
+John Resig, who created jQuery & the jQuery Hotkeys plugin:
+https://github.com/jeresig/jquery.hotkeys

@@ -27,6 +27,8 @@
     <!-- font-awesome CSS -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
      <!-- my stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
@@ -60,28 +62,49 @@
             
         </div>
 
-        <p id="bigmessage">This is a tool to practice intensive listening in a foreign language.<br>To start, choose (or drag and drop) a file you’d like to listen to.</p>
+        <p id="big-message">This is a tool to practice intensive listening in a foreign language.<br>To start, choose (or drag and drop) a file you’d like to listen to.</p>
 
-        <p id="refresh">Refresh the page to load a new file.</p>
+        <!-- <p id="refresh">Refresh the page to load a new file.</p> -->
 
-        <div id="notsupported">
+        <div id="help">
+            <a id="help-link">Help!</a>
+        </div>
+
+        <div id="help-dialog">
+            <p><em>Come again?</em> is a tool for developing listening skills in a foreign language.</p>
+            <p>To practice listening effectively, it’s important to repeat small sections of a text until you can understand and say them without effort. Since most apps do not offer a convenient way to rewind quickly, I designed <em>Come again?</em> with this in mind.</p>
+            <p>It works entirely in your browser, so you’re not uploading anything when you use it.</p>
+            <p>You can use <strong>the keys in the home row</strong> (<strong>A</strong> to <strong>;</strong>) to control playback by rewinding/skipping at 1-to-4-second intervals.</p>
+            <p>You can also use the numbers <strong>1</strong> to <strong>4</strong> or <strong>the left and right arrow keys</strong> to rewind.</p>
+            <p>Use <strong>the spacebar</strong> to play or pause the audio.</p>
+            <p>You can loop a section of audio. Use <strong>G</strong> to set the starting point and then <strong>H</strong> to set the end point. You can make the loop shorter by pressing <strong>G</strong> or <strong>H</strong> while the loop is playing. To cancel the loop, press <strong>escape</strong>.
+            <p>Use <strong>the up and down arrow keys</strong> to control the volume.</p>
+            <p>To slow the audio down, press the <strong>period (.)</strong> key. To reset to the original speed, press the <strong>comma (,)</strong> key.</p>
+            <p>Transcription is an excellent way to practice your listening and writing skills. The link at the bottom of the page will give you a box to write in while listening. The original controls still work if you hold <strong>control</strong>; for example, <strong>control + space</strong> will play/pause the audio. If you go back to the original screen, your writing won’t be lost. Just make sure to copy and paste it somewhere before closing or refreshing <em>Come again?</em>.</p>
+            <p>Press <strong>control + =</strong> and <strong>control + -</strong> to increase/decrease the font size in the transcription box.</p>
+            <p>If you want to load a new audio file, just refresh the page.</p>
+            <p><em>Come again?</em> works best in <a href="http://www.google.com/chrome/">Chrome</a>.</p>
+            <p>Comments? Suggestions? <a href="mailto:sebpearce@gmail.com">Email me!</a></p>
+        </div>        
+
+        <div id="not-supported">
             <p>Sorry, this app is not for smartphones.</p>
             <p>If you use a computer with <a href="http://www.google.com/chrome/">Google Chrome</a>, it will work well.</p>
         </div>
 
         <input id="chooser" type="file" class="custom-file-input" /> 
-        <div id="dragndrop">
+        <div id="drag-n-drop">
             Drag and drop an audio file here.
         </div>
 
-        <label for="player" id="playerlabel">asdf</label>
+        <label for="player" id="player-label">asdf</label>
         <audio controls id="player" src="">
             Audio tag is not supported.
         </audio>
 
         <div id="guide">
 
-            <table id="hotkeyguide">
+            <table id="hotkey-guide">
                 <tr>
                     <td class="key"> A </td>
                     <td class="key"> S </td>
@@ -95,19 +118,19 @@
                     <td class="key"> ; </td>
                 </tr>
                 <tr>
-                    <td class="symbol" id="back4">
+                    <td class="symbol" id="back-4">
                         <i class="fa fa-backward fa-2x"></i><br />
                         <span class="interval">4 sec</span>
                     </td>                
-                    <td class="symbol" id="back3">
+                    <td class="symbol" id="back-3">
                         <i class="fa fa-backward fa-2x"></i><br />
                         <span class="interval">3 sec</span>
                     </td>
-                    <td class="symbol" id="back2">
+                    <td class="symbol" id="back-2">
                         <i class="fa fa-backward fa-2x"></i><br />
                         <span class="interval">2 sec</span>
                     </td>
-                    <td class="symbol" id="back1">
+                    <td class="symbol" id="back-1">
                         <i class="fa fa-backward fa-2x"></i><br />
                         <span class="interval">1 sec</span>
                     </td>
@@ -123,19 +146,19 @@
                         <br />
                         <span class="interval">end</span>
                     </td> 
-                    <td class="symbol" id="forward1">
+                    <td class="symbol" id="forward-1">
                         <i class="fa fa-forward fa-2x"></i><br />
                         <span class="interval">1 sec</span>
                     </td>
-                    <td class="symbol" id="forward2">
+                    <td class="symbol" id="forward-2">
                         <i class="fa fa-forward fa-2x"></i><br />
                         <span class="interval">2 sec</span>
                     </td>
-                    <td class="symbol" id="forward3">
+                    <td class="symbol" id="forward-3">
                         <i class="fa fa-forward fa-2x"></i><br />
                         <span class="interval">3 sec</span>
                     </td>                
-                    <td class="symbol" id="forward4">
+                    <td class="symbol" id="forward-4">
                         <i class="fa fa-forward fa-2x"></i><br />
                         <span class="interval">4 sec</span>
                     </td>
@@ -174,43 +197,41 @@
             </table>
 
             <div id="slow">
-                <span id="slowlabel">slow</span>
-                <div id="slowbar1"></div>
-                <div id="slowbar2"></div>
-                <div id="slowbar3"></div>
+                <span id="slow-label">slow</span>
+                <div id="slow-bar-1"></div>
+                <div id="slow-bar-2"></div>
+                <div id="slow-bar-3"></div>
             </div>
 
             <div id="spacebar">
-                <i id="spacebaricon" class="fa fa-play fa-2x"></i><br />
+                <i id="spacebar-icon" class="fa fa-play fa-2x"></i><br />
             </div>
 
-            <div id="help">
-                <a id="helplink">Click here for help.</a>
-            </div>
-
-            <div id="helpdialog">
-                <p><em>Come again?</em> is a tool for developing listening skills in a foreign language.</p>
-                <p>To practice listening effectively, it’s important to repeat small sections of a text until you can understand and say them without effort. Since most apps do not offer a convenient way to rewind quickly, I designed <em>Come again?</em> with this in mind.</p>
-                <p>It works entirely in your browser, so you’re not uploading anything when you use it.</p>
-                <p>You can use <strong>the keys in the home row</strong> (<strong>A</strong> to <strong>;</strong>) to control playback by rewinding/skipping at 1-to-4-second intervals.</p>
-                <p>You can also use the numbers <strong>1</strong> to <strong>4</strong> or <strong>the left and right arrow keys</strong> to rewind.</p>
-                <p>Use <strong>the spacebar</strong> to play or pause the audio.</p>
-                <p>You can also loop a section of audio. Use <strong>G</strong> to set the starting point and then <strong>H</strong> to set the end point. You can make the loop shorter by pressing <strong>G</strong> or <strong>H</strong> while the loop is playing. To cancel the loop, press <strong>escape</strong>.
-                <p>Use <strong>the up and down arrow keys</strong> to control the volume.</p>
-                <p>To slow the audio down, press the <strong>period (.)</strong> key. To reset to the original speed, press the <strong>comma (,)</strong> key.</p>
-                <p>If you want to load a new audio file, just refresh the page.</p>
-                <p><em>Come again?</em> works best in <a href="http://www.google.com/chrome/">Chrome</a>.</p>
-                <p>Comments? Suggestions? <a href="mailto:sebpearce@gmail.com">Email me!</a></p>
-            </div>
+            <p id="transcribe-button">Click here if you want to write.</p>
 
         </div> <!-- end of guide -->
+
+        <div id="transcription-section">
+
+            <p id="transcription-tip">You can still control playback: hold <strong>control</strong> while pressing the keys.</p>
+
+            <textarea id="transcription-box"></textarea>
+
+            <p id="stop-transcribe-button">Click here to go back.</p>
+
+        </div>
+
+
+        <!-- <div id="transcription-tab">Transcribe</div> -->
 
     </div> <!-- end of page-wrapper -->
 
     <script src="jquery-1.11.0.js"></script>
     <script src="jquery.hotkeys.js"></script>
     <script src="jquery.bpopup.min.js"></script>
+    <script src="keybindings.js"></script>
     <script src="main.js"></script>
+    <script src="jquery.cookie.js"></script>
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
