@@ -1,7 +1,7 @@
 Come again?
 ==========
 
-Come again? is a tool for developing listening skills in a foreign language.
+Come again? is a tool for developing listening skills in a foreign language. You can access the live page [here](http://sebpearce.com/come-again/).
 
 To practice listening effectively, it's important to repeat small sections of a text until you can understand and say them without effort. Since most apps do not offer a convenient way to rewind quickly, I designed Come again? with this in mind.
 
